@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>CS Web Clone 1.6</title>
+
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: #000; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+
+        /* Mira */
+        #crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        #crosshair::before,
+        #crosshair::after {
+            content: '';
+            position: absolute;
+            background: #00ff00;
+            box-shadow: 0 0 2px #000;
+        }
+
+        #crosshair::before {
+            top: 7px;
+            left: 0;
+            width: 16px;
+            height: 2px;
+        }
+
+        #crosshair::after {
+            top: 0;
+            left: 7px;
+            width: 2px;
+            height: 16px;
+        }
+
+        /* HUD */
+        .hud {
+            position: absolute;
+            color: #ffcc00;
+            font-weight: bold;
+            font-size: 24px;
+            text-shadow: 2px 2px #553300;
+            pointer-events: none;
+        }
+
+        #hp { bottom: 20px; left: 50px; }
+        #armor { bottom: 20px; left: 180px; }
+        #ammo { bottom: 20px; right: 50px; font-size: 32px; }
+        #money { top: 100px; right: 50px; color: #2ecc71; text-shadow: 2px 2px #003300; }
+    </style>
+</head>
+<body>
+
+    <div id="crosshair"></div>
+    <div id="hp" class="hud">+ 100</div>
+    <div id="armor" class="hud">🛡️ 100</div>
+    <div id="money" class="hud">$ 16000</div>
+    <div id="ammo" class="hud">30 | 90</div>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+        "firebase/database": "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"
+      }
+    }
+    </script>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+</html>
